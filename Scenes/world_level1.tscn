@@ -21,7 +21,7 @@ position = Vector2(-192, 110)
 scale = Vector2(4, 4)
 
 [node name="enemy" parent="." instance=ExtResource("3_e2twh")]
-position = Vector2(-283, 193)
+position = Vector2(-2834, -2803)
 scale = Vector2(0.28, 0.278)
 
 [node name="Player" parent="." instance=ExtResource("4_gx7ah")]
@@ -95,6 +95,13 @@ stream = ExtResource("7_q1hnu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("9_vd14c")
 
+[node name="ProgressBarDash" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 29.0
+offset_top = 72.0
+offset_right = 255.0
+offset_bottom = 99.0
+show_percentage = false
+
 [node name="ProgressBarGrenade" type="ProgressBar" parent="CanvasLayer"]
 offset_left = 24.0
 offset_top = 19.0
@@ -115,6 +122,23 @@ offset_bottom = -103.64
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Grenade available"
+
+[node name="DashLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 83.0
+offset_top = 72.0
+offset_right = 267.0
+offset_bottom = 107.0
+text = "Dash Available"
+
+[node name="Instructions" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 986.0
+offset_top = 526.0
+offset_right = 1184.0
+offset_bottom = 713.0
+text = "WASD - Move
+F - Dash
+Space - Vision
+Left Click - Grenade"
 
 [node name="grenade_timer" type="Timer" parent="."]
 wait_time = 5.0

@@ -1,74 +1,74 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1735321342
-export_presets.cfg::TextFile::-1::1735321295::0::1::::<><>::
-icon.svg::CompressedTexture2D::2682432325122349035::1735321295::1735321342::1::::<><>::
-README.md::TextFile::-1::1735321295::0::1::::<><>::
-::res://Assets/::1735324076
-end.ogv::VideoStreamTheora::-1::1735321294::0::1::::<><>::
-enemy1_.png::CompressedTexture2D::4391777500547791629::1735321294::1735321343::1::::<><>::
-gameover.wav::AudioStreamWAV::8299257154537229882::1735321294::1735321343::1::::<><>::
-grenade-02.svg::CompressedTexture2D::7633833185172511099::1735321294::1735321342::1::::<><>::
-grenade.png::CompressedTexture2D::653991250923751919::1735321294::1735321342::1::::<><>::
-House In a Forest Loop.ogg::AudioStreamOggVorbis::6047172421459164163::1735321294::1735321342::1::::<><>::
-IBGP - Weapons Starter Kit.png::CompressedTexture2D::5569038064711056303::1735321294::1735321342::1::::<><>::
-light.png::CompressedTexture2D::2214611938110026148::1735321294::1735321342::1::::<><>::
-main-char-sprites-all (1).png::CompressedTexture2D::486083326037058112::1735321294::1735321343::1::::<><>::
-main-char-sprites-all (1).svg::CompressedTexture2D::1387213522053701137::1735321294::1735321342::1::::<><>::
-main-char-sprites-all (2).png::CompressedTexture2D::3587073322346766543::1735321294::1735321342::1::::<><>::
-main-char-sprites-all.png::CompressedTexture2D::2534983672948246725::1735321294::1735321343::1::::<><>::
-player1.png::CompressedTexture2D::5465012921111969334::1735321294::1735321342::1::::<><>::
-player1_back.png::CompressedTexture2D::4005537127970702296::1735321294::1735321342::1::::<><>::
-player1_front.png::CompressedTexture2D::4569855182314736686::1735321294::1735321342::1::::<><>::
-player1_left.png::CompressedTexture2D::4463380967758083087::1735321294::1735321342::1::::<><>::
-player1_right.png::CompressedTexture2D::145458335196044525::1735321294::1735321342::1::::<><>::
-spritesheet.png::CompressedTexture2D::6015487017235280348::1735323082::1735323089::1::::<><>::
-Tree_0.png::CompressedTexture2D::8787668818538120151::1735324076::1735324078::1::::<><>::
-v1.ogv::VideoStreamTheora::-1::1735321294::0::1::::<><>::
-v3.ogv::VideoStreamTheora::-1::1735321294::0::1::::<><>::
-v_last.ogv::VideoStreamTheora::-1::1735321295::0::1::::<><>::
-::res://Assets/Audio/::1735321342
-backgorund audio.mp3::AudioStreamMP3::7816905050534230830::1735321294::1735321342::1::::<><>::
-enemy_growling.mp3::AudioStreamMP3::5378780094643849775::1735321294::1735321342::1::::<><>::
-flash_final.mp3::AudioStreamMP3::8068789356722166966::1735321294::1735321342::1::::<><>::
-grenade_final.mp3::AudioStreamMP3::8265266142396819355::1735321294::1735321342::1::::<><>::
-laser-gun.mp3::AudioStreamMP3::4106037123495681153::1735321294::1735321342::1::::<><>::
-::res://Scenes/::1735321893
-dash_back.tscn::PackedScene::8817282853414877632::1735321892::0::1::::<><>::uid://bxcku1v2kv3hs::::res://Assets/player1_back.png
-dash_front.tscn::PackedScene::8587925665783595390::1735321295::0::1::::<><>::uid://b6dw32l5r41j3::::res://Assets/player1_front.png
-dash_left.tscn::PackedScene::938173429329821849::1735321295::0::1::::<><>::uid://b4udh5xpypm3p::::res://Assets/player1_left.png
-dash_right.tscn::PackedScene::1235086994908323368::1735321295::0::1::::<><>::uid://ccpxbhuledvh::::res://Assets/player1_right.png
-end.tscn::PackedScene::5840835414925364616::1735321295::0::1::::<><>::res://assets/end.ogv
-enemy_level1.tscn::PackedScene::4951914876482346532::1735321892::0::1::::<><>::res://Scripts/enemy_level1.gd<>uid://b3tn60ptt4h62::::res://Assets/enemy1_.png<>uid://civrys8v00ck2::::res://Assets/Audio/enemy_growling.mp3
-enemy_level2.tscn::PackedScene::8274546045998277157::1735321295::0::1::::<><>::res://Scripts/enemy_level2.gd<>uid://b3tn60ptt4h62::::res://Assets/enemy1_.png
-game.tscn::PackedScene::4073078619607427578::1735321295::0::1::::<><>::res://Scripts/manager.gd
-grenade.gd::GDScript::-1::1735321295::0::1::::<>CanvasLayer<>::
-grenade_2.tscn::PackedScene::4350096205420007187::1735321295::0::1::::<><>::uid://jk2e1ipkc6kp::::res://Assets/grenade.png<>res://Scripts/grenade.gd
-node_2d.tscn::PackedScene::6550414194660130345::1735321893::0::1::::<><>::uid://cdtg50d2r5ucb::::res://Scripts/Tiles.png<>uid://58onogi5adgk::::res://Scripts/Screenshot 2024-09-22 123057.png
-player_level1.tscn::PackedScene::8498771528713146420::1735321892::0::1::::<><>::res://Scripts/player_level1.gd<>uid://brdutrapuffox::::res://Assets/main-char-sprites-all (2).png<>uid://cj4j712kdr3ti::::res://Assets/player1.png<>uid://dxvfmiufstnye::::res://Scenes/dash_back.tscn<>uid://dumb47o8d2lms::::res://Scenes/dash_front.tscn<>uid://nmptxxj03jqf::::res://Scenes/dash_left.tscn<>uid://rujx46p3vbeu::::res://Scenes/dash_right.tscn
-player_level2.tscn::PackedScene::560624641564395258::1735321295::0::1::::<><>::res://Scripts/player_level2.gd<>uid://brdutrapuffox::::res://Assets/main-char-sprites-all (2).png<>uid://cj4j712kdr3ti::::res://Assets/player1.png
-ray.tscn::PackedScene::69541608588047882::1735321892::0::1::::<><>::res://Scripts/ray.gd<>uid://cllxijh3xgxk6::::res://Assets/IBGP - Weapons Starter Kit.png
-scene2.gd::GDScript::-1::1735321295::0::1::::<>Node2D<>::
-scene.tscn::PackedScene::5797916858173313975::1735321295::0::1::::<><>::res://Scenes/scene2.gd<>res://assets/v3.ogv
-stone.tscn::PackedScene::3885741968674016022::1735321295::0::1::::<><>::res://Scripts/stone.gd
-v3.tscn::PackedScene::2244664237530608730::1735321295::0::1::::<><>::res://Scenes/v_3.gd<>res://assets/v1.ogv
-v_3.gd::GDScript::-1::1735321295::0::1::::<>Node2D<>::
-v_last.gd::GDScript::-1::1735321295::0::1::::<>Node2D<>::
-v_last.tscn::PackedScene::6091823074770684007::1735321295::0::1::::<><>::res://Scenes/v_last.gd
-world_level1.tscn::PackedScene::9036383114113734766::1735321892::0::1::::<><>::res://Scripts/world_level_1.gd<>uid://ccs0kxumh2jm7::::res://Scenes/enemy_level1.tscn<>uid://dtc4r4mabjaoa::::res://Scenes/player_level1.tscn<>uid://c0lcmnwp85jmn::::res://Scenes/node_2d.tscn<>uid://6s1lnljf2b53::::res://Assets/light.png<>res://Scripts/Spotlight.gd<>uid://djmtjwo8l48k5::::res://Assets/Audio/backgorund audio.mp3<>uid://dp00yxavxsojr::::res://Assets/Audio/grenade_final.mp3<>res://Scenes/grenade.gd
-world_level2.tscn::PackedScene::2547381362720471757::1735321295::0::1::::<><>::res://Scripts/world_level_2.gd<>uid://behnjemuf4hih::::res://icon.svg<>uid://h8tn2i865e8i::::res://Scenes/player_level2.tscn<>uid://dp5itgrgtpbsv::::res://Scenes/enemy_level2.tscn
-::res://Scripts/::1735321342
-enemy_level1.gd::GDScript::-1::1735321295::0::1::::<>CharacterBody2D<>::
-enemy_level2.gd::GDScript::-1::1735321295::0::1::::<>CharacterBody2D<>::
-grenade.gd::GDScript::-1::1735321295::0::1::::<>Area2D<>::
-manager.gd::GDScript::-1::1735321295::0::1::::<>Node2D<>::
-node_2d.tscn::PackedScene::5407074418186721481::1735321295::0::1::::<><>::uid://cdtg50d2r5ucb::::res://assets/Tiles.png<>uid://58onogi5adgk::::res://assets/Screenshot 2024-09-22 123057.png
-player_level1.gd::GDScript::-1::1735321295::0::1::::<>CharacterBody2D<>::
-player_level2.gd::GDScript::-1::1735321295::0::1::::<>CharacterBody2D<>::
-Props.png::CompressedTexture2D::892659394146916843::1735321295::1735321342::1::::<><>::
-ray.gd::GDScript::-1::1735321295::0::1::::<>RigidBody2D<>::
-Screenshot 2024-09-22 123057.png::CompressedTexture2D::2174663773243743938::1735321295::1735321342::1::::<><>::
-Spotlight.gd::GDScript::-1::1735321295::0::1::::<>PointLight2D<>::
-stone.gd::GDScript::-1::1735321295::0::1::::<>RigidBody2D<>::
-Tiles.png::CompressedTexture2D::5023050270370023989::1735321295::1735321342::1::::<><>::
-world_level_1.gd::GDScript::-1::1735321295::0::1::::<>Node2D<>::
-world_level_2.gd::GDScript::-1::1735321295::0::1::::<>Node2D<>::
+::res://::1735329983
+export_presets.cfg::TextFile::-1::1735303722::0::1::::<><>::
+icon.svg::CompressedTexture2D::2682432325122349035::1735303722::1735329984::1::::<><>::
+README.md::TextFile::-1::1735303722::0::1::::<><>::
+::res://Assets/::1735328549
+end.ogv::VideoStreamTheora::-1::1735303722::0::1::::<><>::
+enemy1_.png::CompressedTexture2D::4391777500547791629::1735303722::1735329985::1::::<><>::
+gameover.wav::AudioStreamWAV::8299257154537229882::1735303722::1735329987::1::::<><>::
+grenade-02.svg::CompressedTexture2D::7633833185172511099::1735303722::1735329984::1::::<><>::
+grenade.png::CompressedTexture2D::653991250923751919::1735303722::1735329984::1::::<><>::
+House In a Forest Loop.ogg::AudioStreamOggVorbis::6047172421459164163::1735303722::1735329984::1::::<><>::
+IBGP - Weapons Starter Kit.png::CompressedTexture2D::5569038064711056303::1735303722::1735329984::1::::<><>::
+light.png::CompressedTexture2D::2214611938110026148::1735303722::1735329984::1::::<><>::
+main-char-sprites-all (1).png::CompressedTexture2D::486083326037058112::1735303722::1735329985::1::::<><>::
+main-char-sprites-all (1).svg::CompressedTexture2D::1387213522053701137::1735303722::1735329984::1::::<><>::
+main-char-sprites-all (2).png::CompressedTexture2D::3587073322346766543::1735303722::1735329985::1::::<><>::
+main-char-sprites-all.png::CompressedTexture2D::2534983672948246725::1735303722::1735329985::1::::<><>::
+player1.png::CompressedTexture2D::5465012921111969334::1735303722::1735329984::1::::<><>::
+player1_back.png::CompressedTexture2D::4005537127970702296::1735303722::1735329984::1::::<><>::
+player1_front.png::CompressedTexture2D::4569855182314736686::1735303722::1735329984::1::::<><>::
+player1_left.png::CompressedTexture2D::4463380967758083087::1735303722::1735329984::1::::<><>::
+player1_right.png::CompressedTexture2D::145458335196044525::1735303722::1735329984::1::::<><>::
+spritesheet.png::CompressedTexture2D::6015487017235280348::1735328528::1735329984::1::::<><>::
+Tree_0.png::CompressedTexture2D::8787668818538120151::1735328528::1735329984::1::::<><>::
+v1.ogv::VideoStreamTheora::-1::1735303722::0::1::::<><>::
+v3.ogv::VideoStreamTheora::-1::1735303722::0::1::::<><>::
+v_last.ogv::VideoStreamTheora::-1::1735303722::0::1::::<><>::
+::res://Assets/Audio/::1735306932
+backgorund audio.mp3::AudioStreamMP3::7816905050534230830::1735303722::1735329984::1::::<><>::
+enemy_growling.mp3::AudioStreamMP3::5378780094643849775::1735303722::1735329984::1::::<><>::
+flash_final.mp3::AudioStreamMP3::8068789356722166966::1735303722::1735329984::1::::<><>::
+grenade_final.mp3::AudioStreamMP3::8265266142396819355::1735303722::1735329984::1::::<><>::
+laser-gun.mp3::AudioStreamMP3::4106037123495681153::1735303722::1735329984::1::::<><>::
+::res://Scenes/::1735329828
+dash_back.tscn::PackedScene::8817282853414877632::1735329319::0::1::::<><>::uid://bxcku1v2kv3hs::::res://Assets/player1_back.png
+dash_front.tscn::PackedScene::8587925665783595390::1735306966::0::1::::<><>::uid://b6dw32l5r41j3::::res://Assets/player1_front.png
+dash_left.tscn::PackedScene::938173429329821849::1735306966::0::1::::<><>::uid://b4udh5xpypm3p::::res://Assets/player1_left.png
+dash_right.tscn::PackedScene::1235086994908323368::1735306966::0::1::::<><>::uid://ccpxbhuledvh::::res://Assets/player1_right.png
+end.tscn::PackedScene::5840835414925364616::1735303722::0::1::::<><>::res://assets/end.ogv
+enemy_level1.tscn::PackedScene::4951914876482346532::1735329319::0::1::::<><>::res://Scripts/enemy_level1.gd<>uid://b3tn60ptt4h62::::res://Assets/enemy1_.png<>uid://civrys8v00ck2::::res://Assets/Audio/enemy_growling.mp3
+enemy_level2.tscn::PackedScene::8274546045998277157::1735303722::0::1::::<><>::res://Scripts/enemy_level2.gd<>uid://b3tn60ptt4h62::::res://Assets/enemy1_.png
+game.tscn::PackedScene::4073078619607427578::1735306966::0::1::::<><>::res://Scripts/manager.gd
+grenade.gd::GDScript::-1::1735329828::0::1::::<>CanvasLayer<>::
+grenade_2.tscn::PackedScene::4350096205420007187::1735306965::0::1::::<><>::uid://jk2e1ipkc6kp::::res://Assets/grenade.png<>res://Scripts/grenade.gd
+node_2d.tscn::PackedScene::6550414194660130345::1735329828::0::1::::<><>::uid://cdtg50d2r5ucb::::res://Scripts/Tiles.png<>uid://crx7gskfxx3t5::::res://Assets/spritesheet.png<>uid://58onogi5adgk::::res://Scripts/Screenshot 2024-09-22 123057.png
+player_level1.tscn::PackedScene::8498771528713146420::1735329828::0::1::::<><>::res://Scripts/player_level1.gd<>uid://brdutrapuffox::::res://Assets/main-char-sprites-all (2).png<>uid://cj4j712kdr3ti::::res://Assets/player1.png<>uid://dxvfmiufstnye::::res://Scenes/dash_back.tscn<>uid://dumb47o8d2lms::::res://Scenes/dash_front.tscn<>uid://nmptxxj03jqf::::res://Scenes/dash_left.tscn<>uid://rujx46p3vbeu::::res://Scenes/dash_right.tscn
+player_level2.tscn::PackedScene::560624641564395258::1735303722::0::1::::<><>::res://Scripts/player_level2.gd<>uid://brdutrapuffox::::res://Assets/main-char-sprites-all (2).png<>uid://cj4j712kdr3ti::::res://Assets/player1.png
+ray.tscn::PackedScene::69541608588047882::1735329319::0::1::::<><>::res://Scripts/ray.gd<>uid://cllxijh3xgxk6::::res://Assets/IBGP - Weapons Starter Kit.png
+scene2.gd::GDScript::-1::1735303722::0::1::::<>Node2D<>::
+scene.tscn::PackedScene::5797916858173313975::1735303722::0::1::::<><>::res://Scenes/scene2.gd<>res://assets/v3.ogv
+stone.tscn::PackedScene::3885741968674016022::1735306965::0::1::::<><>::res://Scripts/stone.gd
+v3.tscn::PackedScene::2244664237530608730::1735303722::0::1::::<><>::res://Scenes/v_3.gd<>res://assets/v1.ogv
+v_3.gd::GDScript::-1::1735303722::0::1::::<>Node2D<>::
+v_last.gd::GDScript::-1::1735303722::0::1::::<>Node2D<>::
+v_last.tscn::PackedScene::6091823074770684007::1735306966::0::1::::<><>::res://Scenes/v_last.gd
+world_level1.tscn::PackedScene::9036383114113734766::1735329828::0::1::::<><>::res://Scripts/world_level_1.gd<>uid://ccs0kxumh2jm7::::res://Scenes/enemy_level1.tscn<>uid://dtc4r4mabjaoa::::res://Scenes/player_level1.tscn<>uid://c0lcmnwp85jmn::::res://Scenes/node_2d.tscn<>uid://6s1lnljf2b53::::res://Assets/light.png<>res://Scripts/Spotlight.gd<>uid://djmtjwo8l48k5::::res://Assets/Audio/backgorund audio.mp3<>uid://dp00yxavxsojr::::res://Assets/Audio/grenade_final.mp3<>res://Scenes/grenade.gd
+world_level2.tscn::PackedScene::2547381362720471757::1735303722::0::1::::<><>::res://Scripts/world_level_2.gd<>uid://behnjemuf4hih::::res://icon.svg<>uid://h8tn2i865e8i::::res://Scenes/player_level2.tscn<>uid://dp5itgrgtpbsv::::res://Scenes/enemy_level2.tscn
+::res://Scripts/::1735328543
+enemy_level1.gd::GDScript::-1::1735316038::0::1::::<>CharacterBody2D<>::
+enemy_level2.gd::GDScript::-1::1735303722::0::1::::<>CharacterBody2D<>::
+grenade.gd::GDScript::-1::1735303722::0::1::::<>Area2D<>::
+manager.gd::GDScript::-1::1735306965::0::1::::<>Node2D<>::
+node_2d.tscn::PackedScene::5407074418186721481::1735303722::0::1::::<><>::uid://cdtg50d2r5ucb::::res://assets/Tiles.png<>uid://58onogi5adgk::::res://assets/Screenshot 2024-09-22 123057.png
+player_level1.gd::GDScript::-1::1735328543::0::1::::<>CharacterBody2D<>::
+player_level2.gd::GDScript::-1::1735303722::0::1::::<>CharacterBody2D<>::
+Props.png::CompressedTexture2D::892659394146916843::1735303722::1735329984::1::::<><>::
+ray.gd::GDScript::-1::1735313228::0::1::::<>RigidBody2D<>::
+Screenshot 2024-09-22 123057.png::CompressedTexture2D::2174663773243743938::1735303722::1735329984::1::::<><>::
+Spotlight.gd::GDScript::-1::1735303722::0::1::::<>PointLight2D<>::
+stone.gd::GDScript::-1::1735303722::0::1::::<>RigidBody2D<>::
+Tiles.png::CompressedTexture2D::5023050270370023989::1735303722::1735329984::1::::<><>::
+world_level_1.gd::GDScript::-1::1735313355::0::1::::<>Node2D<>::
+world_level_2.gd::GDScript::-1::1735303722::0::1::::<>Node2D<>::

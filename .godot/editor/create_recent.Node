@@ -1,8 +1,8 @@
+RichTextLabel
 CollisionShape2D
 TileMapLayer
 ProgressBar
 Timer
-RichTextLabel
 CanvasLayer
 AudioStreamPlayer2D
 LightOccluder2D

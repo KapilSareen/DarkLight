@@ -1,4 +1,5 @@
 res://Scenes/world_level1.tscn
+res://Scenes/grenade.gd
 res://Scenes/enemy_level1.tscn
 res://Scenes/player_level1.tscn
 res://Scenes/ray.tscn
