@@ -137,7 +137,6 @@ func get_circle_position(random):
 func _on_AttackTimer_timeout():
 	pass
 
-
 #func launch_stone(directions):
 	#for i in range(len(directions)):
 		#var new_stone=stone.instantiate()

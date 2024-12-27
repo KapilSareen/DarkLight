@@ -21,7 +21,7 @@ position = Vector2(-192, 110)
 scale = Vector2(4, 4)
 
 [node name="enemy" parent="." instance=ExtResource("3_e2twh")]
-position = Vector2(-2834, -2803)
+position = Vector2(330, 243)
 scale = Vector2(0.28, 0.278)
 
 [node name="Player" parent="." instance=ExtResource("4_gx7ah")]
@@ -139,6 +139,14 @@ text = "WASD - Move
 F - Dash
 Space - Vision
 Left Click - Grenade"
+
+[node name="GameMsg" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 535.0
+offset_top = 185.0
+offset_right = 1013.0
+offset_bottom = 468.0
+bbcode_enabled = true
+fit_content = true
 
 [node name="grenade_timer" type="Timer" parent="."]
 wait_time = 5.0

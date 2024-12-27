@@ -4,7 +4,8 @@ extends CharacterBody2D
 @onready var dash_cooldown_timer: Timer = $Dash_Cooldown 
 @onready var knockback: Timer = $Knockback
 
-var HEALTH = 100
+var gameOver=false
+var HEALTH = 1
 var dash_cooldown
 var NORMAL_SPEED = 180
 var DASH_SPEED =1000
@@ -34,7 +35,8 @@ func _ready() -> void:
 	$Dash_Back.emitting=false
 
 func _physics_process(delta: float) -> void:
-
+	if gameOver:
+		return
 	healthbar.size.x = (HEALTH / 100.0) * health_width
 	var directionx := Input.get_axis("move_left", "move_right")
 	var directiony := Input.get_axis("move_up", "move_down")
@@ -101,7 +103,7 @@ func _physics_process(delta: float) -> void:
 			if is_dashing:
 				$Dash_Back.emitting=true
 			else:
-				$Dash_Back.emitting=false		
+				$Dash_Back.emitting=false
 	move_and_slide()
 
 func _on_attack_radius_body_entered(body: Node2D) -> void:

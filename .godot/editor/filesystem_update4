@@ -5,3 +5,6 @@ res://Scenes/player_level1.tscn
 res://Scenes/ray.tscn
 res://Scenes/dash_back.tscn
 res://Scenes/node_2d.tscn
+res://Scripts/player_level1.gd
+res://Scripts/enemy_level1.gd
+res://Scripts/world_level_1.gd

@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var audio_stream_player_2d_2: AudioStreamPlayer2D = $AudioStreamPlayer2D2
-
+var gameOver=false
 var can_grenade = true
 var grenade_scene = preload("res://Scenes/grenade_2.tscn")
 var Click_Position = Vector2(0,0)
@@ -27,6 +27,8 @@ func _ready() -> void:
 var grenade
 
 func _process(delta):
+	if gameOver:
+		return
 	var pos = player.global_position
 	var mouse_position = get_global_mouse_position()
 	val += delta
