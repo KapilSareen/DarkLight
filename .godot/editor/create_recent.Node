@@ -1,3 +1,5 @@
+Line2D
+RayCast2D
 RichTextLabel
 TextEdit
 CollisionShape2D
@@ -11,4 +13,3 @@ PointLight2D
 CanvasModulate
 TileMap
 RigidBody2D
-RayCast2D

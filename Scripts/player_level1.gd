@@ -3,9 +3,11 @@ extends CharacterBody2D
 @onready var healthbar: ColorRect = $ColorRect/healthbar
 @onready var dash_cooldown_timer: Timer = $Dash_Cooldown 
 @onready var knockback: Timer = $Knockback
+@onready var enemy: CharacterBody2D = $"../enemy"
+@onready var line_to_enemy: Line2D = $Line2D
 
 var gameOver=false
-var HEALTH = 1
+var HEALTH = 100
 var dash_cooldown
 var NORMAL_SPEED = 180
 var DASH_SPEED =1000
@@ -29,6 +31,7 @@ func _ready() -> void:
 	health_width = healthbar.size.x
 	SPEED=NORMAL_SPEED
 	dash_cooldown=false
+	line_to_enemy.visible = true
 	$Dash_Right.emitting=false
 	$Dash_Front.emitting=false
 	$Dash_Left.emitting=false
@@ -37,6 +40,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if gameOver:
 		return
+	if enemy:
+		var direction_to_enemy = (enemy.global_position - global_position).normalized()
 	healthbar.size.x = (HEALTH / 100.0) * health_width
 	var directionx := Input.get_axis("move_left", "move_right")
 	var directiony := Input.get_axis("move_up", "move_down")
@@ -105,6 +110,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				$Dash_Back.emitting=false
 	move_and_slide()
+	update_enemy_direction()
 
 func _on_attack_radius_body_entered(body: Node2D) -> void:
 	print(body)
@@ -150,3 +156,27 @@ func _on_dash_cooldown_timeout():
 
 func _on_knockback_timeout() -> void:
 		is_knocked_back = false
+
+func update_enemy_direction():
+	if enemy:
+		var direction_to_enemy = (enemy.global_position - global_position).normalized()
+		var arrow_start = global_position + Vector2(0, -250)  # Adjust Y-offset as needed
+		line_to_enemy.width = 12  
+		
+		# Update Line2D points for the main part of the arrow
+		line_to_enemy.global_position = arrow_start
+		line_to_enemy.points = [
+			Vector2.ZERO, 
+			direction_to_enemy * 95  # Arrow length (adjust as needed)
+		]
+		
+		var arrowhead_length = 25 
+		var arrowhead_angle = direction_to_enemy.angle()
+		
+		var arrowhead_left = line_to_enemy.points[1] - direction_to_enemy.rotated(-PI / 4) * arrowhead_length
+		var arrowhead_right = line_to_enemy.points[1] - direction_to_enemy.rotated(PI / 4) * arrowhead_length
+		
+		line_to_enemy.add_point(arrowhead_left)
+		line_to_enemy.add_point(line_to_enemy.points[1])  
+		line_to_enemy.add_point(arrowhead_right)		
+		line_to_enemy.visible = true
