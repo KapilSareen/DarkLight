@@ -2,10 +2,5 @@ res://Scenes/world_level1.tscn
 res://Scenes/enemy_level1.tscn
 res://Scenes/player_level1.tscn
 res://Scenes/ray.tscn
-res://Scripts/ray.gd
-res://Scripts/world_level_1.gd
 res://Scenes/dash_back.tscn
-res://Scripts/enemy_level1.gd
-res://Scripts/player_level1.gd
-res://Scenes/grenade.gd
 res://Scenes/node_2d.tscn

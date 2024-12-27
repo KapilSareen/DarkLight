@@ -25,13 +25,12 @@ position = Vector2(-283, 193)
 scale = Vector2(0.28, 0.278)
 
 [node name="Player" parent="." instance=ExtResource("4_gx7ah")]
-position = Vector2(577, 321)
+position = Vector2(577.185, 321)
 scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
-visible = false
 energy = 0.71
 shadow_enabled = true
 texture = ExtResource("5_1lomw")

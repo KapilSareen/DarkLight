@@ -1,3 +1,5 @@
+CollisionShape2D
+TileMapLayer
 ProgressBar
 Timer
 RichTextLabel
@@ -7,9 +9,6 @@ LightOccluder2D
 PointLight2D
 CanvasModulate
 TileMap
-CollisionShape2D
 RigidBody2D
 RayCast2D
 Camera2D
-Sprite2D
-Area2D
