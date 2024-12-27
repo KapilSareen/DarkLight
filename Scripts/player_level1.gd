@@ -1,20 +1,21 @@
 extends CharacterBody2D
 
 @onready var healthbar: ColorRect = $ColorRect/healthbar
-#@onready var ray: RayCast2D = $RayCaast2D
-
 @onready var dash_cooldown_timer: Timer = $Dash_Cooldown 
+@onready var knockback: Timer = $Knockback
 
 var HEALTH = 100
 var dash_cooldown
-var NORMAL_SPEED = 150
+var NORMAL_SPEED = 180
 var DASH_SPEED =1000
 var SPEED
 var is_dashing = false
 const DASH_DURATION = 0.5 
 var dash_timer=false
 var health_width
-
+var knockback_timer = 1.2
+var knockback_strength = 150 
+var is_knocked_back = false
 
 enum {
 	SURROUND,
@@ -33,8 +34,7 @@ func _ready() -> void:
 	$Dash_Back.emitting=false
 
 func _physics_process(delta: float) -> void:
-	
-	#draw_line(Vector2(0,0),Vector2(200,200),Color("red"),1.0)
+
 	healthbar.size.x = (HEALTH / 100.0) * health_width
 	var directionx := Input.get_axis("move_left", "move_right")
 	var directiony := Input.get_axis("move_up", "move_down")
@@ -57,6 +57,10 @@ func _physics_process(delta: float) -> void:
 			$Dash_Left.emitting=false
 			$Dash_Back.emitting=false
 	
+	if is_knocked_back:
+		move_and_slide()
+		return
+		
 	if directionx:
 		velocity.x = directionx * SPEED
 	else:
@@ -97,8 +101,7 @@ func _physics_process(delta: float) -> void:
 			if is_dashing:
 				$Dash_Back.emitting=true
 			else:
-				$Dash_Back.emitting=false
-			
+				$Dash_Back.emitting=false		
 	move_and_slide()
 
 func _on_attack_radius_body_entered(body: Node2D) -> void:
@@ -113,11 +116,6 @@ func _on_attack_radius_body_entered(body: Node2D) -> void:
 		else:
 			body.state=RANDOM
 
-
-
-
-
-
 func _on_attack_radius_body_exited(body: Node2D) -> void:
 	if body.has_method("set_state"):
 		body.is_in_attack_area=false
@@ -126,6 +124,7 @@ func _on_attack_radius_body_exited(body: Node2D) -> void:
 
 func _on_player_area_body_entered(body: Node2D) -> void:
 	take_damage(body)
+	set_retreat(body)
 	
 	if body.is_in_group("Enemies"):
 		body.set_state(RETREAT)
@@ -136,22 +135,16 @@ func take_damage(body):
 		HEALTH= HEALTH - body.damage
 		body.queue_free()
 		
-	
-
-
-func _on_chase_radius_body_entered(body: Node2D) -> void:
-	if body.has_method("set_state"):
-		#body.attack_timer.start()
-		body.set_state(SURROUND)
-		
-
-
-
+func set_retreat(body: Node2D):
+	var retreat_direction = (global_position - body.global_position).normalized()
+	velocity = retreat_direction * knockback_strength
+	if body.is_in_group("Enemies"):
+		HEALTH -= 10  
+		is_knocked_back = true
+	$Knockback.start()
 
 func _on_dash_cooldown_timeout():
 	dash_cooldown=false
 
-
-func _on_chase_radius_body_exited(body: Node2D) -> void:
-	if body.has_method("set_state"):
-		body.set_state(SURROUND)
+func _on_knockback_timeout() -> void:
+		is_knocked_back = false

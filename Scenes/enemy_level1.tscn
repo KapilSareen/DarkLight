@@ -5,12 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://civrys8v00ck2" path="res://Assets/Audio/enemy_growling.mp3" id="3_ghprp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3o2r"]
-radius = 348.0
-height = 948.0
+radius = 208.0
+height = 532.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0om4p"]
-radius = 373.0
-height = 1002.0
+radius = 214.0
+height = 522.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kev2l"]
 atlas = ExtResource("2_0ofgk")
@@ -94,17 +94,19 @@ collision_priority = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collider_radius"]
 light_mask = 3
 visibility_layer = 3
+position = Vector2(4, 78)
 shape = SubResource("CapsuleShape2D_x3o2r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
 visibility_layer = 3
+position = Vector2(0, 89)
 shape = SubResource("CapsuleShape2D_0om4p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, 118)
 sprite_frames = SubResource("SpriteFrames_i3ndp")
-animation = &"down"
-frame_progress = 0.483019
+animation = &"up"
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 1.5
@@ -129,6 +131,7 @@ offset_bottom = 24.0
 color = Color(0, 100, 0, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(4, 75)
 stream = ExtResource("3_ghprp")
 
 [connection signal="area_entered" from="collider_radius" to="." method="_on_collider_radius_area_entered"]

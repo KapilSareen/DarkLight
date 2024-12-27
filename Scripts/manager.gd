@@ -2,7 +2,6 @@ extends Node2D
 
 const V_3 = preload("res://Scenes/v3.tscn")
 const SCENE = preload("res://Scenes/scene.tscn")
-const V_LAST = preload("res://Scenes/v_last.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

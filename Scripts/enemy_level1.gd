@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 const SPEED = 60
-const RANDOM_SPEED = 160
+const RANDOM_SPEED = 130
 const STONE_SPEED=50
 var motion=Vector2.ZERO
 var player= null
@@ -11,8 +11,6 @@ var is_in_attack_area=false
 
 var is_hitting= false
 
-#@onready var stone: Node2D = $"."
-#var stone = preload("res://Scenes/stone.tscn")
 var ray_scene = preload("res://Scenes/ray.tscn")
 @onready var world_level_1: Node2D = $".."
 
@@ -61,9 +59,6 @@ func _ready():
 	player=Player
 	random_movement_timer.start()
 	health_width = healthbar.size.x
-	
-
-  
 
 func _physics_process(delta):
 	healthbar.size.x = (HEALTH / 100.0) * health_width
@@ -87,19 +82,17 @@ func _physics_process(delta):
 			move(get_circle_position(randomnum), delta)
 			print(SURROUND)
 		RANDOM:
-			#print("IS IN" )
-			#print(is_in_attack_area)
 			if is_in_attack_area:
-				state=HIT
-			#print("RANDOM")
-			move_random(player.global_position, delta)
+				state = HIT  
+			else:
+				move_random(player.global_position, delta)
 
 		HIT:
-			#print("HIT")
 			move_random(player.global_position, delta)
 			if ! is_hitting:
 				world_level_1.hit()
 				is_hitting=true
+				state=RANDOM
 		
 		RETREAT:
 			retreat(player.global_position,delta,-1)
@@ -107,29 +100,25 @@ func _physics_process(delta):
 
 func move_random(target, delta):
 	var player_direction = (target - global_position).normalized()
-	var inward_outward_movement = player_direction * random_inward_outward * delta
+	var inward_outward_movement = player_direction  * delta
 	var side_direction = Vector2(-player_direction.y, player_direction.x)
-	var tangential_movement = side_direction * random_tangential_speed * delta
-	velocity = (inward_outward_movement + tangential_movement) * RANDOM_SPEED * 25 
+	var tangential_movement = side_direction * random_tangential_speed * delta * 2
+	velocity = (inward_outward_movement + tangential_movement) * RANDOM_SPEED * 35 
 	move_and_slide()
-
-
 
 	
-func retreat(target,delta, sign):
+func retreat(target, delta, sign):
 	var direction = sign * (target - global_position).normalized() 
 	var desired_velocity =  direction * SPEED * 2
-	var steering = desired_velocity
-	velocity = steering
-	move_and_slide()
+	velocity = desired_velocity
+	move_and_slide()  # Ensure 'velocity' is passed here
 
 func move(target, delta):
 	var direction = (target - global_position).normalized() 
-	var desired_velocity =  direction * SPEED
+	var desired_velocity = direction * SPEED
 	var steering = (desired_velocity - velocity) * delta * 2.5
 	velocity += steering
-	move_and_slide()
-
+	move_and_slide()  # Ensure 'velocity' is passed here
 func set_state(new_state):
 	state = new_state
 
@@ -191,7 +180,6 @@ func _on_random_movement_timeout() -> void:
 
 
 func _on_cooldown_timeout() -> void:
-	
 	CAN_ATTACK=true
 	is_hitting=false
 	if is_in_attack_area:

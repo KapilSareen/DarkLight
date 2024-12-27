@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://rujx46p3vbeu" path="res://Scenes/dash_right.tscn" id="7_y8u7r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7quxc"]
-radius = 277.0
-height = 674.0
+radius = 269.0
+height = 748.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vx5gn"]
 atlas = ExtResource("2_6rnoi")
@@ -78,7 +78,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5nvj4"]
-radius = 3441.46
+radius = 2417.98
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gy2h0"]
 radius = 177.0
@@ -128,7 +128,6 @@ metadata/_edit_use_anchors_ = true
 shape = SubResource("CapsuleShape2D_gy2h0")
 
 [node name="Dash_Back" parent="." instance=ExtResource("4_85eoj")]
-script = null
 
 [node name="Dash_Front" parent="." instance=ExtResource("5_svf58")]
 
@@ -139,8 +138,13 @@ script = null
 [node name="Dash_Cooldown" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="Knockback" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
 [connection signal="body_entered" from="player_area" to="." method="_on_player_area_body_entered"]
 [connection signal="body_entered" from="attack_radius" to="." method="_on_attack_radius_body_entered"]
 [connection signal="body_exited" from="attack_radius" to="." method="_on_attack_radius_body_exited"]
 [connection signal="tree_entered" from="player_shape" to="." method="_on_player_body_tree_entered"]
 [connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Knockback" to="." method="_on_knockback_timeout"]
