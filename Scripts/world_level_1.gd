@@ -3,7 +3,7 @@ extends Node2D
 # Use get_node_or_null to prevent errors if nodes are missing
 @onready var enemy: CharacterBody2D = get_node_or_null("enemy")
 @onready var enemy_2: CharacterBody2D = get_node_or_null("enemy2")
-
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = get_node_or_null("AudioStreamPlayer2D")
 @onready var audio_stream_player_2d_2: AudioStreamPlayer2D = get_node_or_null("AudioStreamPlayer2D2")
 
@@ -31,6 +31,7 @@ func _ready() -> void:
 		audio_stream_player_2d.play()
 
 func _process(delta):
+
 	if gameOver:
 		return
 	

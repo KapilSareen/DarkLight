@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp5itgrgtpbsv"]
+[gd_scene load_steps=17 format=3 uid="uid://dp5itgrgtpbsv"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_level2.gd" id="1_jhkrx"]
 [ext_resource type="Texture2D" uid="uid://b3tn60ptt4h62" path="res://Assets/enemy1_.png" id="2_0ofgk"]
-[ext_resource type="Shader" path="res://Scenes/enemy_level2.gdshader" id="2_87ncy"]
+[ext_resource type="Shader" uid="uid://c3qsiiwve0him" path="res://Scripts/enemy_level1.tres" id="2_piuo1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3o2r"]
 radius = 348.0
@@ -13,7 +13,9 @@ radius = 523.0
 height = 1052.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v131a"]
-shader = ExtResource("2_87ncy")
+shader = ExtResource("2_piuo1")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(0.562802, 0.999471, 0.531434, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kev2l"]
 atlas = ExtResource("2_0ofgk")
@@ -79,6 +81,45 @@ animations = [{
 "name": &"up",
 "speed": 2.0
 }]
+
+[sub_resource type="Animation" id="Animation_5i3h6"]
+resource_name = "death"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qpa3s"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_16x2t"]
+_data = {
+"RESET": SubResource("Animation_qpa3s"),
+"death": SubResource("Animation_5i3h6")
+}
 
 [node name="enemy" type="CharacterBody2D" groups=["Enemies"]]
 light_mask = 3
@@ -159,6 +200,11 @@ layout_mode = 0
 offset_right = 283.0
 offset_bottom = 24.0
 color = Color(0, 100, 0, 1)
+
+[node name="deathanimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_16x2t")
+}
 
 [connection signal="area_entered" from="collider_radius" to="." method="_on_collider_radius_area_entered"]
 [connection signal="area_exited" from="collider_radius" to="." method="_on_collider_radius_area_exited"]

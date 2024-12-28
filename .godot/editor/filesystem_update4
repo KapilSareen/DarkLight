@@ -20,3 +20,4 @@ res://Scenes/enemy_level2.gdshader
 res://enemyKill.gdshader
 res://Scenes/gpu_particles_2d.tscn
 res://Scripts/enemy_level1.gd
+res://Scripts/enemy_level1.tres

@@ -18,7 +18,7 @@ var stone = preload("res://Scenes/stone.tscn")
 @onready var ray_3: RayCast2D = $rays/ray3
 @onready var ray_4: RayCast2D = $rays/ray4
 
-
+@onready var deathanimation: AnimationPlayer = $deathanimation
 @onready var ray_1_slant: RayCast2D = $rays_slant/ray1
 @onready var ray_2_slant: RayCast2D = $rays_slant/ray2
 @onready var ray_3_slant: RayCast2D = $rays_slant/ray3
@@ -36,7 +36,7 @@ var random_inward_outward = 0.0
 var random_tangential_speed = 0.0
 
 var randomnum
-var HEALTH = 100
+var HEALTH = 1
 
 
 enum {
@@ -62,11 +62,12 @@ func _ready():
 
 func _physics_process(delta):
 	if HEALTH <=0:
+		deathanimation.play("death")
 		await get_tree().create_timer(2).timeout
 		queue_free()
 		healthbar.queue_free()
 		return
-	healthbar.size.x = (HEALTH / 100.0) * health_width
+	healthbar.size.x = (HEALTH / 150.0) * health_width
 
 	$AnimatedSprite2D.play()
 	if is_in_attack_area:
