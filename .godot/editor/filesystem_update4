@@ -21,3 +21,5 @@ res://enemyKill.gdshader
 res://Scenes/gpu_particles_2d.tscn
 res://Scripts/enemy_level1.gd
 res://Scripts/enemy_level1.tres
+res://Scripts/transition.gd
+res://Scenes/transition.tscn

@@ -42,9 +42,8 @@ func _ready():
 	self.scale = Vector2(ORIGINAL_SCALE, ORIGINAL_SCALE)
 
 func _process(delta):
-	# Check if the game is over
 	if player.gameOver and not is_dimming:
-		is_dimming = true  # Start dimming the light
+		is_dimming = true 
 	
 	# Gradually dim the light if dimming is active
 	if is_dimming:

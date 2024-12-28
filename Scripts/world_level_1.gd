@@ -15,6 +15,7 @@ var final_position = Vector2.ZERO
 var throw_force = 180
 @onready var player = get_node_or_null("Player")
 @onready var grenade_cooldown: Timer = get_node_or_null("grenade_cooldown")
+@onready var animation_player: AnimationPlayer = $CanvasLayer2/AnimationPlayer
 
 var ray_scene = preload("res://Scenes/ray.tscn")
 var m
@@ -31,7 +32,11 @@ func _ready() -> void:
 		audio_stream_player_2d.play()
 
 func _process(delta):
-
+	if (not enemy or not is_instance_valid(enemy) or enemy.HEALTH <= 0) and (not enemy_2 or not is_instance_valid(enemy_2) or enemy_2.HEALTH <= 0):
+		var tween = create_tween()
+		tween.tween_property(canvas_modulate, "color", Color.WHITE, 3)
+		await get_tree().create_timer(1).timeout
+		animation_player.play("win")
 	if gameOver:
 		return
 	

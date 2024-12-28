@@ -1,4 +1,6 @@
 AnimationPlayer
+ColorRect
+CanvasLayer
 GPUParticles2D
 CPUParticles2D
 Sprite2D
@@ -10,6 +12,3 @@ CollisionShape2D
 TileMapLayer
 ProgressBar
 Timer
-CanvasLayer
-AudioStreamPlayer2D
-LightOccluder2D
