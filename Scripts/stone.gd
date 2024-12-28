@@ -7,7 +7,8 @@ func _ready() -> void:
 	damage_timer.start()
 
 func _process(delta: float) -> void:
-	if get_colliding_bodies().size() > 0:
-		queue_free()
+	pass
+	#if get_colliding_bodies().size() > 0:
+		#queue_free()
 func _on_damage_timeout() -> void:
 	queue_free()

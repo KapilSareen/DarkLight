@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqdxf832u4w07"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_qbfwc"]
+[ext_resource type="Texture2D" uid="uid://c5ihe4rclw6v7" path="res://Assets/Dark Light.png" id="2_d66ef"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbfwc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 648.0
+texture = ExtResource("2_d66ef")
+expand_mode = 1
+
+[node name="yes" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 716.0
+offset_top = 479.0
+offset_right = 812.0
+offset_bottom = 568.0
+mouse_default_cursor_shape = 2
+
+[node name="no" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 846.0
+offset_top = 477.0
+offset_right = 941.0
+offset_bottom = 565.0
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="no" to="." method="_on_no_pressed"]

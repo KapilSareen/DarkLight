@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvmjuqrb413t7"]
 
 [ext_resource type="Script" path="res://Scripts/stone.gd" id="1_iw4o7"]
-[ext_resource type="Texture2D" uid="uid://cp2tg5j1l7c61" path="res://Assets/stone.png" id="2_bd6r4"]
+[ext_resource type="Texture2D" uid="uid://dgfs276xl3tfe" path="res://Assets/snowball.png" id="2_pwqdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5v6x"]
 size = Vector2(24, 25)
 
 [node name="stone" type="RigidBody2D" groups=["damage"]]
-collision_mask = 3
+collision_layer = 8
+collision_mask = 8
 gravity_scale = 0.0
 script = ExtResource("1_iw4o7")
 
@@ -16,8 +17,9 @@ position = Vector2(2, 2.5)
 shape = SubResource("RectangleShape2D_t5v6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_bd6r4")
+position = Vector2(10, -1.5)
+scale = Vector2(0.0870469, 0.0879041)
+texture = ExtResource("2_pwqdu")
 
 [node name="damage" type="Timer" parent="."]
 wait_time = 4.0

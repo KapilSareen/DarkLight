@@ -11,6 +11,21 @@
 [ext_resource type="AudioStream" uid="uid://dp00yxavxsojr" path="res://Assets/Audio/grenade_final.mp3" id="7_qtgwd"]
 [ext_resource type="Script" path="res://Scenes/grenade.gd" id="9_vd14c"]
 
+[sub_resource type="Animation" id="Animation_gik82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_rqjp5"]
 resource_name = "win"
 length = 2.0
@@ -27,21 +42,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_gik82"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qppda"]
 _data = {
 "RESET": SubResource("Animation_gik82"),
@@ -52,7 +52,6 @@ _data = {
 script = ExtResource("1_gnmtq")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0253638, 0.0253638, 0.0253638, 1)
 
 [node name="Map" parent="." instance=ExtResource("4_hjhsd")]
@@ -60,11 +59,11 @@ position = Vector2(-232, 116)
 scale = Vector2(4, 4)
 
 [node name="enemy" parent="." instance=ExtResource("3_e2twh")]
-position = Vector2(-1447, -1090)
+position = Vector2(-4168, -2590)
 scale = Vector2(0.28, 0.278)
 
 [node name="enemy2" parent="." instance=ExtResource("4_n70le")]
-position = Vector2(-1064, 83)
+position = Vector2(-2931, -1071)
 scale = Vector2(0.278, 0.278)
 collision_layer = 7
 collision_mask = 7

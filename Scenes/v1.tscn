@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cous3xfudnwh0"]
 
 [ext_resource type="Script" path="res://Scenes/v_1.gd" id="1_iane1"]
-[ext_resource type="VideoStream" path="res://Assets/v1.ogv" id="2_6foew"]
+[ext_resource type="VideoStream" path="res://Assets/v11.ogv" id="2_r21u3"]
 
 [node name="scene" type="Node2D"]
 script = ExtResource("1_iane1")
@@ -29,6 +29,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stream = ExtResource("2_6foew")
+stream = ExtResource("2_r21u3")
 autoplay = true
 expand = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -613.0
+offset_top = -335.0
+offset_right = 592.0
+offset_bottom = 325.0
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

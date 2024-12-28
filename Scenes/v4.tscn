@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://boci6xobcjgx2"]
+
+[ext_resource type="Script" path="res://Scenes/v_4.gd" id="1_ly5h4"]
+[ext_resource type="VideoStream" path="res://Assets/v44.ogv" id="1_pl781"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ly5h4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -737.0
+offset_top = -438.0
+offset_right = 889.0
+offset_bottom = 580.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -587.0
+offset_top = -336.0
+offset_right = 594.0
+offset_bottom = 337.0
+stream = ExtResource("1_pl781")
+autoplay = true
+expand = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -588.0
+offset_top = -339.0
+offset_right = 585.0
+offset_bottom = 334.0
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -36,7 +36,7 @@ var random_inward_outward = 0.0
 var random_tangential_speed = 0.0
 
 var randomnum
-var HEALTH = 1
+var HEALTH = 150
 
 
 enum {

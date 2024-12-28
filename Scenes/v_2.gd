@@ -8,5 +8,12 @@ func _ready() -> void:
 #
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	await get_tree().create_timer(7).timeout
+	#if Input.is_action_just_pressed("left_mouse_click"):
+		#get_tree().change_scene_to_file("res://Scenes/v3.tscn")
+	await get_tree().create_timer(14.1).timeout
 	get_tree().change_scene_to_file("res://Scenes/v3.tscn")
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/v3.tscn")
+	

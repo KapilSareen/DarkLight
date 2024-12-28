@@ -30,13 +30,24 @@ var grenade
 func _ready() -> void:
 	if audio_stream_player_2d:
 		audio_stream_player_2d.play()
+		
+
+func _start_victory_sequence():
+	await get_tree().create_timer(3).timeout  # Wait for the canvas transition to complete
+	animation_player.play("win")  # Play the win animation
+	
+	await get_tree().create_timer(2).timeout  # Wait for the animation to finish
+	get_tree().change_scene_to_file("res://Scenes/control.tscn")  # Transition to the next scene
 
 func _process(delta):
 	if (not enemy or not is_instance_valid(enemy) or enemy.HEALTH <= 0) and (not enemy_2 or not is_instance_valid(enemy_2) or enemy_2.HEALTH <= 0):
 		var tween = create_tween()
 		tween.tween_property(canvas_modulate, "color", Color.WHITE, 3)
-		await get_tree().create_timer(1).timeout
-		animation_player.play("win")
+		_start_victory_sequence()
+		#await get_tree().create_timer(1).timeout
+		#animation_player.play("win")
+		#await get_tree().create_timer(2.5).timeout
+		#get_tree().change_scene_to_file("res://Scenes/control.tscn")
 	if gameOver:
 		return
 	
