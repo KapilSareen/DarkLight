@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://68lj6upao3ik"]
 
 [ext_resource type="Script" path="res://Scenes/v_3.gd" id="1_dxuag"]
-[ext_resource type="VideoStream" path="res://assets/v1.ogv" id="1_fw27y"]
+[ext_resource type="VideoStream" path="res://Assets/v3.ogv" id="1_fw27y"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_dxuag")

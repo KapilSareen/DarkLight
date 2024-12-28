@@ -1,10 +1,16 @@
 extends PointLight2D
 #@onready var spotlight_cooldown: Timer = $Spotlight_cooldown 
+@onready var player: CharacterBody2D = $".."
+const DECREASE_RATE = 0.5  # Speed of light dimming when game over
+const ORIGINAL_SCALE = 1.0  # Original (starting) scale
+
+# Variables for state management
+var is_dimming = false  # A flag indicating if dimming is active
+
+
 # Constants for growth, decrease, max, and initial scale sizes
 const GROWTH_RATE = 10.0  # Speed of scaling up
-const DECREASE_RATE = 1.0  # Speed of scaling down
 const MAX_SCALE = 5.0  # Maximum allowable scale
-const ORIGINAL_SCALE = 1.0  # Original (starting) scale
 const GROW_TIME = 1.0
 const SHRINK_TIME = 10.0  
 
@@ -18,7 +24,21 @@ func _ready():
 	self.scale = Vector2(ORIGINAL_SCALE, ORIGINAL_SCALE)
 
 func _process(delta):
-	# Start scaling up when the "ui_accept" key is pressed once
+	# Check if the game is over
+	if player.gameOver and not is_dimming:
+		is_dimming = true  # Start dimming the light
+	
+	# Gradually dim the light if dimming is active
+	if is_dimming:
+		# Slowly reduce the energy (light intensity)
+		energy = move_toward(energy, 0.0, DECREASE_RATE * delta)
+		
+		# Optionally, also reduce scale if desired
+		self.scale = self.scale.move_toward(Vector2(0.0, 0.0), DECREASE_RATE * delta)
+		
+		# Stop dimming once the light is fully dimmed
+		if energy == 0.0 and self.scale == Vector2(0.0, 0.0):
+			is_dimming = false  # Stop further processing	# Start scaling up when the "ui_accept" key is pressed once
 	if Input.is_action_just_pressed("ui_accept") and not cooldown: 
 		#cooldown = true
 		is_scaling_up = true  # Enable scaling up
@@ -55,7 +75,3 @@ func _process(delta):
 		if scaling_timer <= 0.0 or self.scale == Vector2(ORIGINAL_SCALE, ORIGINAL_SCALE):
 			self.scale = Vector2(ORIGINAL_SCALE, ORIGINAL_SCALE)  # Ensure final scale is exact
 			is_scaling_down = false  # Stop the scaling down process
-
-
-#func _on_spotlight_cooldown_timeout():
-	#cooldown = false
