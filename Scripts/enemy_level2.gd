@@ -102,28 +102,25 @@ func _physics_process(delta):
 
 func move_random(target, delta):
 	var player_direction = (target - global_position).normalized()
-	var inward_outward_movement = player_direction * random_inward_outward * delta
+	var inward_outward_movement = player_direction  * delta
 	var side_direction = Vector2(-player_direction.y, player_direction.x)
-	var tangential_movement = side_direction * random_tangential_speed * delta
-	velocity = (inward_outward_movement + tangential_movement) * RANDOM_SPEED * 25 
+	var tangential_movement = side_direction * random_tangential_speed * delta * 2
+	velocity = (inward_outward_movement + tangential_movement) * RANDOM_SPEED * 35 
 	move_and_slide()
-
-
 
 	
-func retreat(target,delta, sign):
+func retreat(target, delta, sign):
 	var direction = sign * (target - global_position).normalized() 
 	var desired_velocity =  direction * SPEED * 2
-	var steering = desired_velocity
-	velocity = steering
-	move_and_slide()
+	velocity = desired_velocity
+	move_and_slide()  # Ensure 'velocity' is passed here
 
 func move(target, delta):
 	var direction = (target - global_position).normalized() 
-	var desired_velocity =  direction * SPEED
+	var desired_velocity = direction * SPEED
 	var steering = (desired_velocity - velocity) * delta * 2.5
 	velocity += steering
-	move_and_slide()
+	move_and_slide()  # Ensure 'velocity' is passed here
 
 func set_state(new_state):
 	state = new_state

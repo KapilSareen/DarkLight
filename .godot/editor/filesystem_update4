@@ -9,3 +9,10 @@ res://Scenes/v2.tscn
 res://Scenes/v3.tscn
 res://Scenes/v1.tscn
 res://Scripts/Spotlight.gd
+res://Scripts/world_level_1.gd
+res://Scripts/ray.gd
+res://Scripts/player_level1.gd
+res://Scenes/enemy_level2.tscn
+res://Scenes/stone.tscn
+res://Scripts/stone.gd
+res://Scripts/enemy_level2.gd

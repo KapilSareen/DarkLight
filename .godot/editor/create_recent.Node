@@ -1,3 +1,4 @@
+Sprite2D
 Line2D
 RayCast2D
 RichTextLabel
@@ -11,5 +12,3 @@ AudioStreamPlayer2D
 LightOccluder2D
 PointLight2D
 CanvasModulate
-TileMap
-RigidBody2D

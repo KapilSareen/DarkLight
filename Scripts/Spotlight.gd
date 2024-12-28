@@ -1,16 +1,10 @@
 extends PointLight2D
 #@onready var spotlight_cooldown: Timer = $Spotlight_cooldown 
 @onready var player: CharacterBody2D = $".."
-const DECREASE_RATE = 0.5  # Speed of light dimming when game over
-const ORIGINAL_SCALE = 1.0  # Original (starting) scale
-
-# Variables for state management
-var is_dimming = false  # A flag indicating if dimming is active
-
-
-# Constants for growth, decrease, max, and initial scale sizes
 const GROWTH_RATE = 10.0  # Speed of scaling up
+const DECREASE_RATE = 1.0  # Speed of scaling down
 const MAX_SCALE = 5.0  # Maximum allowable scale
+const ORIGINAL_SCALE = 1.0  # Original (starting) scale
 const GROW_TIME = 1.0
 const SHRINK_TIME = 10.0  
 
@@ -19,6 +13,30 @@ var is_scaling_down = false  # A flag indicating if scaling down is active
 var is_scaling_up = false  # A flag indicating if scaling up is active
 var scaling_timer = 0.0  # Timer for scaling up and down
 var cooldown = false
+#const DECREASE_RATE = 1.0  # Speed of light dimming when game over
+#const ORIGINAL_SCALE = 1.0  # Original (starting) scale
+
+# Variables for state management
+var is_dimming = false  # A flag indicating if dimming is active
+
+#const GROWTH_RATE = 10.0  # Speed of scaling up
+#const DECREASE_RATE = 1.0  # Speed of scaling down
+#const MAX_SCALE = 5.0  # Maximum allowable scale
+#const ORIGINAL_SCALE = 1.0  # Original (starting) scale
+#const GROW_TIME = 1.0
+#const SHRINK_TIME = 10.0  
+
+# Constants for growth, decrease, max, and initial scale sizes
+#const GROWTH_RATE = 10.0  # Speed of scaling up
+#const MAX_SCALE = 5.0  # Maximum allowable scale
+#const GROW_TIME = 1.0
+#const SHRINK_TIME = 10.0  
+
+# Variables to handle scaling states and timers
+#var is_scaling_down = false  # A flag indicating if scaling down is active
+#var is_scaling_up = false  # A flag indicating if scaling up is active
+#var scaling_timer = 0.0  # Timer for scaling up and down
+#var cooldown = false
 func _ready():
 	# Set the initial scale of the PointLight2D when the scene starts
 	self.scale = Vector2(ORIGINAL_SCALE, ORIGINAL_SCALE)

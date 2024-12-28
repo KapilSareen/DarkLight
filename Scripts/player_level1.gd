@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var dash_cooldown_timer: Timer = $Dash_Cooldown 
 @onready var knockback: Timer = $Knockback
 @onready var enemy: CharacterBody2D = $"../enemy"
+@onready var enemy_2: CharacterBody2D = $"../enemy2"
+
 @onready var line_to_enemy: Line2D = $Line2D
 
 var gameOver=false
@@ -132,14 +134,14 @@ func _on_attack_radius_body_exited(body: Node2D) -> void:
 
 func _on_player_area_body_entered(body: Node2D) -> void:
 	take_damage(body)
-	set_retreat(body)
 	
 	if body.is_in_group("Enemies"):
 		body.set_state(RETREAT)
+		set_retreat(body)
 		
 func take_damage(body):
 	print(body.get_groups())
-	if body.is_in_group("damage_enemy"):
+	if body.is_in_group("damage_enemy") || body.is_in_group("damage"):
 		HEALTH= HEALTH - body.damage
 		body.queue_free()
 		
@@ -158,8 +160,26 @@ func _on_knockback_timeout() -> void:
 		is_knocked_back = false
 
 func update_enemy_direction():
-	if enemy:
-		var direction_to_enemy = (enemy.global_position - global_position).normalized()
+	var closest_enemy: CharacterBody2D = null
+	var closest_distance = INF
+	
+	# Check if enemy exists and calculate distance
+	if enemy and is_instance_valid(enemy):
+		var distance_to_enemy = global_position.distance_to(enemy.global_position)
+		if distance_to_enemy < closest_distance:
+			closest_distance = distance_to_enemy
+			closest_enemy = enemy
+	
+	# Check if enemy_2 exists and calculate distance
+	if enemy_2 and is_instance_valid(enemy_2):
+		var distance_to_enemy2 = global_position.distance_to(enemy_2.global_position)
+		if distance_to_enemy2 < closest_distance:
+			closest_distance = distance_to_enemy2
+			closest_enemy = enemy_2
+	
+	# If a closest enemy is found, point towards it
+	if closest_enemy:
+		var direction_to_enemy = (closest_enemy.global_position - global_position).normalized()
 		var arrow_start = global_position + Vector2(0, -250)  # Adjust Y-offset as needed
 		line_to_enemy.width = 12  
 		
@@ -176,6 +196,9 @@ func update_enemy_direction():
 		var arrowhead_left = line_to_enemy.points[1] - direction_to_enemy.rotated(-PI / 4) * arrowhead_length
 		var arrowhead_right = line_to_enemy.points[1] - direction_to_enemy.rotated(PI / 4) * arrowhead_length
 		
+		line_to_enemy.clear_points()  # Clear previous points
+		line_to_enemy.add_point(Vector2.ZERO)
+		line_to_enemy.add_point(direction_to_enemy * 95)
 		line_to_enemy.add_point(arrowhead_left)
 		line_to_enemy.add_point(line_to_enemy.points[1])  
 		line_to_enemy.add_point(arrowhead_right)		
