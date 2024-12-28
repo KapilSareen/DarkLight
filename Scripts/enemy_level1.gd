@@ -39,7 +39,7 @@ var random_inward_outward = 0.0
 var random_tangential_speed = 0.0
 
 var randomnum
-var HEALTH = 100
+var HEALTH = 1
 
 
 enum {
@@ -61,6 +61,11 @@ func _ready():
 	health_width = healthbar.size.x
 
 func _physics_process(delta):
+	if HEALTH <=0:
+		await get_tree().create_timer(2).timeout
+		queue_free()
+		healthbar.queue_free()
+		return
 	healthbar.size.x = (HEALTH / 100.0) * health_width
 
 	$AnimatedSprite2D.play()

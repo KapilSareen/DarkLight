@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp5itgrgtpbsv"]
+[gd_scene load_steps=14 format=3 uid="uid://dp5itgrgtpbsv"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_level2.gd" id="1_jhkrx"]
 [ext_resource type="Texture2D" uid="uid://b3tn60ptt4h62" path="res://Assets/enemy1_.png" id="2_0ofgk"]
+[ext_resource type="Shader" path="res://Scenes/enemy_level2.gdshader" id="2_87ncy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3o2r"]
 radius = 348.0
@@ -10,6 +11,9 @@ height = 948.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0om4p"]
 radius = 523.0
 height = 1052.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v131a"]
+shader = ExtResource("2_87ncy")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kev2l"]
 atlas = ExtResource("2_0ofgk")
@@ -101,6 +105,7 @@ visibility_layer = 3
 shape = SubResource("CapsuleShape2D_0om4p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_v131a")
 sprite_frames = SubResource("SpriteFrames_i3ndp")
 animation = &"down"
 frame_progress = 0.483019

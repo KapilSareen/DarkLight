@@ -1,18 +1,20 @@
 extends Node2D
 
-@onready var enemy: CharacterBody2D = $enemy
-@onready var enemy_2: CharacterBody2D = $enemy2
+# Use get_node_or_null to prevent errors if nodes are missing
+@onready var enemy: CharacterBody2D = get_node_or_null("enemy")
+@onready var enemy_2: CharacterBody2D = get_node_or_null("enemy2")
 
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-@onready var audio_stream_player_2d_2: AudioStreamPlayer2D = $AudioStreamPlayer2D2
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = get_node_or_null("AudioStreamPlayer2D")
+@onready var audio_stream_player_2d_2: AudioStreamPlayer2D = get_node_or_null("AudioStreamPlayer2D2")
+
 var gameOver = false
 var can_grenade = true
 var grenade_scene = preload("res://Scenes/grenade_2.tscn")
-var Click_Position = Vector2(0,0)
-var final_position = Vector2(0,0)
+var Click_Position = Vector2.ZERO
+var final_position = Vector2.ZERO
 var throw_force = 180
-@onready var player = $Player
-@onready var grenade_cooldown: Timer = $grenade_cooldown
+@onready var player = get_node_or_null("Player")
+@onready var grenade_cooldown: Timer = get_node_or_null("grenade_cooldown")
 
 var ray_scene = preload("res://Scenes/ray.tscn")
 var m
@@ -22,13 +24,18 @@ var r = false
 var val = 0
 var max_radius = 1200
 
-func _ready() -> void:
-	audio_stream_player_2d.play()
-
 var grenade
+
+func _ready() -> void:
+	if audio_stream_player_2d:
+		audio_stream_player_2d.play()
 
 func _process(delta):
 	if gameOver:
+		return
+	
+	# Validate player node
+	if not player or not is_instance_valid(player):
 		return
 	
 	var pos = player.global_position
@@ -37,57 +44,66 @@ func _process(delta):
 	# Grenade throw logic
 	if Input.is_action_just_pressed("left_mouse_click") && can_grenade:
 		can_grenade = false
-		grenade_cooldown.start()
+		if grenade_cooldown:
+			grenade_cooldown.start()
+		
 		Click_Position = get_global_mouse_position()
 		final_position = Click_Position
 
 		m = (final_position + 3 * pos) / 4
-		m.y = m.y - 0.5 * abs(final_position.y - pos.y) - 0.5 * abs(final_position.x - pos.x)
+		m.y -= 0.5 * abs(final_position.y - pos.y) + 0.5 * abs(final_position.x - pos.x)
+		
 		grenade = grenade_scene.instantiate()
-		audio_stream_player_2d_2.play()
+		if audio_stream_player_2d_2:
+			audio_stream_player_2d_2.play()
 		add_child(grenade)
 		grenade.position = pos
 		time = 0
 
 	# Grenade movement logic
-	if m && grenade:
+	if m and grenade and is_instance_valid(grenade):
 		grenade.position = bezeir(time, pos)
 		time += delta
 		if time > 0.5:
-			m = 0
+			m = null
 			time = 0
 
 	# Damage enemies on grenade explosion
-	if is_instance_valid(grenade):
+	if grenade and is_instance_valid(grenade):
 		var radius = 200
 		var grenade_position = grenade.position
 		
-		# Check damage for both enemies before freeing grenade
 		var damaged = false
 		
 		# Damage Enemy 1
-		var distance_enemy1 = enemy.position.distance_to(grenade_position)
-		if distance_enemy1 < radius:
-			enemy.HEALTH -= grenade.damage
-			damaged = true
+		if enemy and is_instance_valid(enemy):
+			var distance_enemy1 = enemy.position.distance_to(grenade_position)
+			if distance_enemy1 < radius:
+				if "HEALTH" in enemy:
+					enemy.HEALTH -= grenade.damage
+				damaged = true
 		
 		# Damage Enemy 2
-		var distance_enemy2 = enemy_2.position.distance_to(grenade_position)
-		if distance_enemy2 < radius:
-			enemy_2.HEALTH -= grenade.damage
-			damaged = true
+		if enemy_2 and is_instance_valid(enemy_2):
+			var distance_enemy2 = enemy_2.position.distance_to(grenade_position)
+			if distance_enemy2 < radius:
+				if "HEALTH" in enemy_2:
+					enemy_2.HEALTH -= grenade.damage
+				damaged = true
 		
-		# Only free grenade after processing all damage
+		# Free grenade if any damage occurred
 		if damaged:
 			grenade.queue_free()
 			grenade = null
 
 func bezeir(t, pos):
 	t = t * 2
+	if not m:
+		return pos  # Fallback if 'm' is not set
+	
 	var p1 = pos.lerp(m, t)
 	var p2 = m.lerp(final_position, t)
-	var r = p1.lerp(p2, t)
-	return r
+	return p1.lerp(p2, t)
 
 func get_final_position(player_pos: Vector2, click_pos: Vector2, max_radius: float) -> Vector2:
 	var distance = player_pos.distance_to(click_pos)
@@ -101,10 +117,14 @@ func _on_grenade_cooldown_timeout() -> void:
 	can_grenade = true
 	
 func hit():
+	# Ensure nodes are valid before proceeding
+	if not enemy or not is_instance_valid(enemy) or not player or not is_instance_valid(player):
+		return
+	
 	var ray_node = ray_scene.instantiate()
 	add_child(ray_node)
 	ray_node.position = enemy.position
 	var direction = (player.position - ray_node.position).normalized()
 	var angle = direction.angle()
 	ray_node.rotation = angle
-	ray_node.apply_impulse(direction * 100 * 4)
+	ray_node.apply_impulse(direction * 400)

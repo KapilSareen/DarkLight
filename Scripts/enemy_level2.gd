@@ -61,6 +61,11 @@ func _ready():
   
 
 func _physics_process(delta):
+	if HEALTH <=0:
+		await get_tree().create_timer(2).timeout
+		queue_free()
+		healthbar.queue_free()
+		return
 	healthbar.size.x = (HEALTH / 100.0) * health_width
 
 	$AnimatedSprite2D.play()
