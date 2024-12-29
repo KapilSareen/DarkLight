@@ -10207,8 +10207,8 @@ tile_set = SubResource("TileSet_p6mkk")
 
 [node name="RigidBody2D10" type="RigidBody2D" parent="."]
 position = Vector2(174.75, 133.5)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 8
+collision_mask = 8
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D10"]
